@@ -1,11 +1,12 @@
 from gendiff.tools.parse_file import get_dict_from_file
 from gendiff.tools.diff import diff
 from gendiff.tools.stylish import format_diff
+from gendiff.tools.stylish import format_plain
 
 
-def generate_diff(path_file1, path_file2, format_name='stylish'):
+def generate_diff(path_file1, path_file2, format_type='stylish'):
     dict1 = get_dict_from_file(path_file1)
     dict2 = get_dict_from_file(path_file2)
 
     diff_res = diff(dict1, dict2)
-    return format_diff(diff_res) 
+    return format_diff(diff_res, format_type) 
