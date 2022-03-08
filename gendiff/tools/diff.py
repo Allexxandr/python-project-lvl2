@@ -9,7 +9,7 @@ def diff(dict1, dict2):
         elif key not in dict2:
             info['mode'] = 'deleted'
             info['data'] = dict1[key]
-        elif type(dict1[key]) is dict and type(dict2[key]) is dict:
+        elif isinstance(dict1[key], dict) and isinstance(dict2[key], dict):
             info['mode'] = 'have children'
             info['children'] = diff(dict1[key], dict2[key])
         elif dict1[key] == dict2[key]:

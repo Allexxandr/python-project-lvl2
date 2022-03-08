@@ -4,7 +4,6 @@ from gendiff.format.json import format_json
 
 
 def format_diff(diff, format_type):
-    
     if format_type == 'stylish':
         return format_stylish(diff)
     elif format_type == 'plain':

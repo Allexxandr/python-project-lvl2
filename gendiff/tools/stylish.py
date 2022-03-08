@@ -1,7 +1,8 @@
 import json
 
+
 def format_diff(diff, format_type):
-    
+
     if format_type == 'stylish':
         return format_stylish(diff)
     elif format_type == 'plain':
@@ -12,7 +13,7 @@ def format_diff(diff, format_type):
 
 
 def format_dict(info, indent):
-    if type(info) is dict:
+    if isinstance(info, dict):
         indent = indent + '   '
         result = '{\n'
         for key in info.keys():
@@ -30,9 +31,9 @@ def format_dict(info, indent):
         result = str(info)
     return result
 
-def format_stylish(gendiff, tree = 0):
+
+def format_stylish(gendiff, tree=0):  # noqa: C901
     result = '{\n'
-    
     indent = ' '
     for i in range(tree):
         indent += ' '
@@ -57,9 +58,8 @@ def format_stylish(gendiff, tree = 0):
             result += f"  + {info['name']}: {data}\n"
 
     result += indent[:-2] + '}'
-    
-    return result 
 
+    return result
 
 
 def format_plain(diff, path=''):
@@ -89,8 +89,6 @@ def format_plain(diff, path=''):
             result.append(diff)
     return '\n'.join(result)
 
+
 def format_json(diff):
     return json.dumps(diff)
-
-
-

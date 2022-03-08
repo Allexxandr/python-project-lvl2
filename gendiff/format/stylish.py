@@ -1,5 +1,5 @@
 def format_dict(info, indent):
-    if type(info) is dict:
+    if isinstance(info, dict):
         indent = indent + '   '
         result = '{\n'
         for key in info.keys():
@@ -18,10 +18,8 @@ def format_dict(info, indent):
     return result
 
 
-
-def format_stylish(gendiff, tree = 0):
+def format_stylish(gendiff, tree=0):  # noqa: C901
     result = '{\n'
-    
     indent = ' '
     for i in range(tree):
         indent += ' '
@@ -46,5 +44,5 @@ def format_stylish(gendiff, tree = 0):
             result += f"  + {info['name']}: {data}\n"
 
     result += indent[:-2] + '}'
-    
-    return result 
+
+    return result

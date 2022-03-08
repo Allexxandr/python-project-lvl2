@@ -20,14 +20,13 @@ def format_plain(diff, path=''):
             tree_path = path + info['name']
             diff = (
                 f"Property '{tree_path}' was updated. "
-                f"From {make_change(info['data before'])} to {make_change(info['data after'])}"
+                f"From {make_change(info['data before'])} to {make_change(info['data after'])}"  # noqa: E501
             )
             result.append(diff)
     return '\n'.join(result)
 
 
 def make_change(data):
-    
     if type(data) is dict or type(data) is list:
         result = '[complex value]'
     elif data is False:
