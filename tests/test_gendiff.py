@@ -1,9 +1,10 @@
 from gendiff.generate_diff import generate_diff
 import os
-import json
+
 
 def get_fixture_path(file_name):
     return os.path.join(os.getcwd(), 'fixtures', file_name)
+
 
 def test_gendiff():
     dict1 = get_fixture_path('file1.json')
@@ -17,7 +18,4 @@ def test_gendiff():
         correct_answer_data_plain = f.read()
 
     assert generate_diff(dict1, dict2) == correct_answer_data_stylish
-    assert generate_diff(dict1, dict2, format_type='plain') == correct_answer_data_plain
-
-
-    
+    assert generate_diff(dict1, dict2, format_type='plain') == correct_answer_data_plain  # noqa: E501
