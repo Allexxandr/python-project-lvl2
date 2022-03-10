@@ -15,3 +15,9 @@ package-install:
 
 lint:
 	poetry run flake8 gendiff
+
+test:
+	poetry run pytest -vv --color=yes
+
+print:
+	poetry run gendiff --format stylish  fixtures/file1.json fixtures/file2.json > res
